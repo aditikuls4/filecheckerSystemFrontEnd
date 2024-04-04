@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  public Student={
+    username:'',
+    studentEmail:'',
+    firstname:'',
+    lasttname:'',
+    password:'',
+    phone:''
+
+  }
+;
 hide = true;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  myformsubmit()
+  {
+    alert('form submit');
+  }
 }

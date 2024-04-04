@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    FormsModule,
     BrowserAnimationsModule
   ],
   providers: [],
