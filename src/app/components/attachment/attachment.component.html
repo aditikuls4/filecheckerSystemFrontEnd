@@ -1,0 +1,23 @@
+
+<div style="margin-top: 3%;">
+    <div *ngIf="attachments.length <= 1">
+      <h1 style="color: grey; margin: 50%;">No Attachments to display</h1>
+    </div>
+    
+    <div *ngIf="attachments.length > 0 ">
+        <h2 class="text-center">Attachments for User ID: {{ userId }}</h2>
+        <div>
+<div class="card text-center" *ngFor="let attachment of attachments">
+    <div *ngIf="attachment.status === 'pending' ">
+    <div class="card-header" style="font-weight: bolder;">
+     File name: {{attachment.fileName}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">File Type:  {{attachment.fileType }}</h5>
+      <p class="card-text"><a (click)="downloadAttachment(attachment.id)" style="text-decoration: underline; color: blue; cursor: pointer;">download here</a> </p>
+      <button href="#" (click)="updateStatus(attachment.id, 'APPROVED')" class="btn btn-success">Approve</button>
+                  <button href="#" (click)="updateStatus(attachment.id, 'REJECTED')" class="btn btn-danger" style="margin-left: 20px;">Reject</button>
+    </div>
+  </div>
+</div>
+            </div>

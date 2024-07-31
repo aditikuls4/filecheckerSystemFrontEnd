@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { StudentService } from 'src/app/service/student.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 
@@ -12,31 +13,50 @@ export class SignupComponent implements OnInit {
 
   public Student={
     username:'',
-    studentEmail:'',
-    firstname:'',
-    lasttname:'',
+    email:'',
+    firstName:'',
+    lastName:'',
     password:'',
-    phone:''
+    phoneNo:'',
+    rollId:''
 
   }
 ;
 hide = true;
-  constructor(private studentService:StudentService,private _snackBar: MatSnackBar) { }
+  constructor(private studentService:StudentService,private _snackBar: MatSnackBar,private router :Router) { }
 
   ngOnInit(): void {
   }
+  
   myformsubmit()
   {
-   if(this.Student.username== null || this.Student.studentEmail==null || this.Student.firstname==null || 
-     this.Student.password==null || this.Student.phone==null )
-     {
-      this._snackBar.open('All fields must be filled','',{
-        duration:3000,
-        verticalPosition:'top'
-      });
-      
-       return ;
+    if (!this.Student.username.trim() || !this.Student.email.trim() || !this.Student.firstName.trim() || 
+    !this.Student.password.trim() || !this.Student.phoneNo.toString().trim() || !this.Student.rollId.toString().trim()) {
+  this._snackBar.open('All fields must be filled', '', {
+    duration: 3000,
+    verticalPosition: 'top'
+  });
+  return;
+
+
      }
+
+     if (!this.isValidEmailFormat(this.Student.email)) {
+      this._snackBar.open('Invalid email format', '', {
+        duration: 3000,
+        verticalPosition: 'top'
+      });
+      return;
+    }
+
+    if( this.Student.phoneNo.toString().trim().length !== 10)
+      {
+        this._snackBar.open('phone number should be of 10 digits', '', {
+          duration: 3000,
+          verticalPosition: 'top'
+        });
+        return;
+      }
 
       this.studentService.addUser(this.Student).subscribe(
         (data:any)=>{
@@ -46,12 +66,19 @@ hide = true;
           //   duration:3000,
           //   verticalPosition:'top'
           // });
+
+
           Swal.fire({
-            title: "Registration successfully!",
+            title: "Registration successfullY",
             text: "user id "+data.username,
-            icon: "success"
+            icon: "success",
+            confirmButtonText: "OK"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this.router.navigate(['/login'])
+            }
           });
-          
+         
         },
         (error)=>{
           console.log(error);
@@ -66,4 +93,10 @@ hide = true;
       )
 
   }
+  isValidEmailFormat(email: string): boolean {
+    // Regular expression to validate email format
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
+
 }

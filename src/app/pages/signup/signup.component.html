@@ -15,28 +15,35 @@
 
               <mat-form-field class="full-width" appearance="fill">
                 <mat-label>First Name</mat-label>
-                <input  [(ngModel)]="Student.firstname" name="firstname"
+                <input  [(ngModel)]="Student.firstName" name="firstName"
                 matInput placeholder="Enter name here" required>
               </mat-form-field>
 
 
               <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Last Name</mat-label>
-                <input [(ngModel)]="Student.lasttname" name="lasttname"
+                <input [(ngModel)]="Student.lastName" name="lastName"
                  matInput placeholder="Enter name here" required>
               </mat-form-field>
               <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Email Address</mat-label>
-                <input [(ngModel)]="Student.studentEmail" name="studentEmail"
+                <input [(ngModel)]="Student.email" name="email"
                  type=email matInput placeholder="Enter your email like abc@gmail.com" required>
               </mat-form-field>
 
 
               <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Phone Number</mat-label>
-                <input [(ngModel)]="Student.phone" name="phone"
+                <input [(ngModel)]="Student.phoneNo" name="phoneNo"
                  type=number matInput placeholder="Enter your Phone Number" size="10" required>
               </mat-form-field>
+              
+              <mat-form-field class="full-width" appearance="fill">
+                <mat-label>ROLL iD</mat-label>
+                <input [(ngModel)]="Student.rollId" name="rollId"
+                 type=number matInput placeholder="Enter your Phone Number" size="10" required>
+              </mat-form-field>
+
 
               <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Password</mat-label>

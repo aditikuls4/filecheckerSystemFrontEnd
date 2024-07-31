@@ -1,0 +1,37 @@
+
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-2">
+    <app-admin-sidebar></app-admin-sidebar>
+    </div>
+    <div class="col-md-10">
+<div *ngIf="attachment.length <= 0">
+    <h1 style="color: grey; margin: 20%;">No Records to display</h1>
+
+</div>
+<div *ngIf="attachment.length > 0">
+    <h2 class="text-center">Rejected Request: </h2>
+    <table class="table table-danger">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">fileName</th>
+            <th scope="col">fileType</th>
+            <th scope="col">username</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let attachment of attachment">
+            <th scope="row">{{attachment.id}}</th>
+            <td>{{attachment.fileName}}</td>
+            <td>{{attachment.fileType}}</td>
+            <td>{{attachment.user.username}}</td>
+            <td>&#10060;</td>
+            <!-- <td><button  (click)="viewAttachment(attachment.id)" class="btn btn-primary" style="cursor: pointer;">View</button></td> -->
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  </div>

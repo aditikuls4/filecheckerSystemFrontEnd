@@ -1,0 +1,56 @@
+<div class="container" style="margin-top: 20px;">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Upload and Download Files</h4>
+      </div><br>
+      <div class="panel-body">        
+        <strong>Select files from your computer</strong>
+        <div *ngIf="fileStatus.status==='progress'">
+          <div class="progress">
+            <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                {{ fileStatus.requestType }} {{ fileStatus.percent }} 
+              </div>
+          </div>
+        </div> <hr>
+        <form enctype="multipart/form-data">
+            <fieldset>
+              <div class="form-group">
+                <div>
+                  <input type="file" (change)="onUploadFiles($event.target.files)" name="files" multiple class="form-control" />
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" (click)="uploadFiles()">Upload</button>
+            </fieldset>
+          </form>
+          
+        
+        <br> 
+        
+        
+        <div *ngIf="attachments.length > 0">
+            <h2>Attachments for User {{ userId }}</h2>
+            <table class="table table-success">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">fileName</th>
+                    <th scope="col">fileType</th>
+                    <th scope="col">status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let attachment of attachments">
+                    <th scope="row">{{attachment.id}}</th>
+                    <td>{{attachment.fileName}}</td>
+                    <td>{{attachment.fileType}}</td>
+                    <td>{{attachment.status}}</td>
+                    <td><button  (click)="downloadAttachment(attachment.id)" class="btn btn-success" style="cursor: pointer;">download</button></td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+  
+      </div>
+    </div>
+      </div>

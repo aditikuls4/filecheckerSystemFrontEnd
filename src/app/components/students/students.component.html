@@ -1,0 +1,40 @@
+
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-2">
+    <app-admin-sidebar></app-admin-sidebar>
+    </div>
+    <div class="col-md-10">
+<div style="margin-top: 3%;">
+<div *ngIf="users.length <= 0">
+    <h1 style="color: grey; margin: 20%;">No Records to display</h1>
+
+</div>
+<div *ngIf="users.length > 0">
+    <H1 class="text-center">All The Student Details</H1>
+    <table class="table table-primary">
+        <thead>
+          <tr>
+            <th scope="col">userId</th>
+            <th scope="col">username</th>
+            <th scope="col">email</th>
+            <th scope="col">firstName</th>
+            <th scope="col">phoneNo</th>
+            <th scope="col">Action</th>
+          
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.phoneNo}}</td>
+            <td><button (click)="viewAttachementByUserId(user.id)" class="btn btn-primary" style="cursor: pointer;">View</button></td>
+          </tr>
+        </tbody>
+      </table>
+  </div></div>
+  </div>

@@ -1,0 +1,48 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-2">
+    <app-admin-sidebar></app-admin-sidebar>
+    </div>
+    <div class="col-md-10">
+<div class="row" style="margin-top: 5%;">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Users</h5>
+          <p class="card-text">Get AllUsers Details.</p>
+          <button href="#" class="btn btn-primary " (click)="getUsersDetails()" >View All Users</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">PENDING Request</h5>
+          <p class="card-text">View All Pending Request</p>
+          <button href="#" class="btn btn-primary " (click)="getPendingRequests()" >View Pending Request</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">APPROVED Request</h5>
+            <p class="card-text">View All APPROVED Request</p>
+            <button href="#" class="btn btn-primary " (click)="getApprovedRequests()" >View Approved Request</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">REJECTED Request</h5>
+            <p class="card-text">View All REJECTED Request</p>
+            <button href="#" class="btn btn-primary " (click)="getRejectedRequests()" >View Rejected Request</button>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>

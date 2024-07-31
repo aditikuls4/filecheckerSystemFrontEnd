@@ -4,16 +4,20 @@
 <div class="row" style="margin-top: 50px;">
     <div class="col-md-6 offset-md-3">
         <h3 class="text-center">Login here</h3>
-
-        <form  action="#"  >
+        <form  action="#" (ngSubmit)="formSubmit()" >
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>User Name</mat-label>
-                <input matInput placeholder="Enter name here" required>
+                <input 
+                [(ngModel)]="loginData.username"  
+                name="username"
+                matInput placeholder="Enter name here" required>
                 <mat-hint>name should be unique</mat-hint>
              </mat-form-field>
              <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Password</mat-label>
                 <input 
+                [(ngModel)]="loginData.password"  required 
+                name="password"
                 matInput [type]="hide ? 'password' : 'text'">
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" required>
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

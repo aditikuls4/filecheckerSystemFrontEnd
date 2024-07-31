@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-action-list>
+    <div mat-subheader>Menu</div>
+    <button mat-list-item routerLink="/admin-dashboard">
+    <mat-icon mat-list-icon>home</mat-icon>
+    Home
+    </button>
+    
+    <button mat-list-item routerLink="/profile">
+    <mat-icon mat-list-icon>account_circle</mat-icon>
+    Profile
+    </button>
+    <button mat-list-item routerLink="/student">
+    <mat-icon mat-list-icon>people</mat-icon>
+    All Students
+    </button>
+    <button mat-list-item routerLink="/pendingRequest">
+    <mat-icon mat-list-icon>people</mat-icon>
+   Pending Request
+    </button>
+    <button mat-list-item routerLink="/rejectedRequest">
+        <mat-icon mat-list-icon>people</mat-icon>
+      Rejected Request
+        </button>
+        <button mat-list-item routerLink="/approvedRequest">
+            <mat-icon mat-list-icon>people</mat-icon>
+          Approved Request
+            </button>
+    
+    
+    <button mat-list-item  (click)="logout()">
+    <mat-icon mat-list-icon>logout</mat-icon>
+    Logout
+    </button>
+    
+    </mat-action-list>
+    </mat-card>

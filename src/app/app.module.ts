@@ -16,6 +16,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HomeComponent } from './pages/home/home.component';
+import { authInterceptorProviders } from './service/auth.interceptor';
+import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { StudentDashboardComponent } from './pages/student/student-dashboard/student-dashboard.component';
+import { StudentsComponent } from './components/students/students.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
+import { PendingRequestComponent } from './components/pending-request/pending-request.component';
+import { AttachmentComponent } from './components/attachment/attachment.component';
+import { ApprovedRequestComponent } from './components/approved-request/approved-request.component';
+import { RejectedRequestComponent } from './components/rejected-request/rejected-request.component';
+import { AdminSidebarComponent } from './pages/admin/admin-sidebar/admin-sidebar.component';
+import {MatListModule} from '@angular/material/list';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -25,7 +38,17 @@ import { HomeComponent } from './pages/home/home.component';
     LoginComponent,
     SignupComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    AdminDashboardComponent,
+    StudentDashboardComponent,
+    StudentsComponent,
+    PendingRequestComponent,
+    AttachmentComponent,
+    ApprovedRequestComponent,
+    RejectedRequestComponent,
+    AdminSidebarComponent,
+    ProfileComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -37,9 +60,12 @@ import { HomeComponent } from './pages/home/home.component';
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatTableModule,
+    MatCardModule,
+    MatListModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
